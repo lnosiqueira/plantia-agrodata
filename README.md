@@ -48,54 +48,33 @@ plantia-agrodata/
 ├── data/
 │   └── colheita.json         # Dados simulados da colheita
 │
-├── docs/
-│   └── relatorio.md          # Documentação do projeto
-│
-├── requirements.txt          # Dependências do projeto
-├── LICENSE                   # Licença MIT
-└── README.md                 # Este arquivo
+└── docs/
+└── relatorio.pdf # Documentação do projeto
 
-| Tecnologia       | Função                      |
-| ---------------- | --------------------------- |
-| **Python 3.12+** | Lógica e processamento      |
-| **JSON**         | Armazenamento local         |
-| **cx_Oracle**    | Conexão com banco Oracle    |
-| **Pandas**       | Manipulação de dados        |
-| **Matplotlib**   | Geração de gráficos         |
-| **GitHub**       | Versionamento e colaboração |
 
-git clone https://github.com/lnosiqueira/plantia-agrodata.git
-cd "plantia-agrodata"
+---
 
-pip install -r requirements.txt
+## 🧩 Tecnologias Utilizadas
 
-python src/main.py
+| Tecnologia | Função |
+|-------------|--------|
+| Python 3.12+ | Lógica e processamento de dados |
+| JSON | Armazenamento de dados |
+| Oracle Database | Persistência relacional |
+| Pandas | Manipulação de dados |
+| Matplotlib | Visualização gráfica |
+| GitHub | Versionamento e colaboração |
 
-=== PlantIA Agrodata — Gestão de Colheita (FIAP) ===
-1) Registrar colheita
-2) Resumo por campo (field_id)
-3) Resumo geral
-4) Salvar dados em JSON
-5) Gráficos (média por campo / série por campo)
-0) Sair
+---
 
-Exemplo de saída de gráfico:
+## 👤 Autor
 
-📈 Média de perda (%) por campo
+**Desenvolvido por [Leno Siqueira](https://github.com/Inosiqueira)**  
+💡 Projeto acadêmico FIAP — Curso de Inteligência Artificial  
+🌱 Marca do projeto: **PlantIA**
 
-📊 Série temporal de perda por campo
+---
 
-👨‍💻 Autor
+## 📜 Licença
 
-Desenvolvido por:
-Leno Siqueira
-
-📧 lnosiqueira@gmail.com
-
-💡 Projeto acadêmico — FIAP - Inteligência Artificial
-🌱 Marca: PlantIA Agrodata
-
-📜 Licença
-
-Este projeto está licenciado sob a Licença MIT
- — uso livre para fins acadêmicos e de aprendizado.
+Este projeto está sob a **licença MIT**, permitindo o uso acadêmico e livre, desde que os créditos sejam mantidos.
