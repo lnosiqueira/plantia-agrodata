@@ -1,0 +1,29 @@
+[
+  {
+    "field_id": 101,
+    "harvest_date": "2025-09-20",
+    "method": "mecanica",
+    "tons_expected": 100.0,
+    "tons_collected": 85.0,
+    "loss_percentage": 15.0,
+    "notes": "Umidade alta"
+  },
+  {
+    "field_id": 101,
+    "harvest_date": "2025-09-28",
+    "method": "mecanica",
+    "tons_expected": 95.0,
+    "tons_collected": 83.0,
+    "loss_percentage": 12.63,
+    "notes": "Operação noturna"
+  },
+  {
+    "field_id": 102,
+    "harvest_date": "2025-09-22",
+    "method": "manual",
+    "tons_expected": 88.0,
+    "tons_collected": 84.0,
+    "loss_percentage": 4.55,
+    "notes": ""
+  }
+]
