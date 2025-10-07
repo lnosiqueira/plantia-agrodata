@@ -1,4 +1,9 @@
-from graficos import plot_media_perda_por_campo, plot_serie_perda_por_campo
+from graficos import (
+    plot_media_perda_por_campo,
+    plot_serie_perda_por_campo,
+    save_media_perda_por_campo_png,
+    save_serie_perda_por_campo_png,
+)
 from coleta_dados import registrar_colheita
 from analise_dados import resumo_por_campo, resumo_geral
 from persistencia import salvar_json, ler_json
@@ -38,7 +43,7 @@ def menu():
     print("2) Resumo por campo (field_id)")
     print("3) Resumo geral")
     print("4) Salvar dados em JSON")
-    print("5) Gráficos (média por campo / série por campo)")
+    print("5) Gráficos (mostrar/salvar PNG)")
     print("0) Sair")
 
 
@@ -73,18 +78,38 @@ def main():
 
         elif opc == "5":
             print("\n=== Gráficos ===")
-            print("1) Média de perda por campo (barras)")
-            print("2) Série temporal de perda por campo (linha)")
+            print("1) Média de perda por campo (barras) [mostrar]")
+            print("2) Série temporal de perda por campo (linha) [mostrar]")
+            print("3) Salvar PNG: Média de perda por campo")
+            print("4) Salvar PNG: Série por field_id")
             sub = input("Escolha: ").strip()
+
             if sub == "1":
                 plot_media_perda_por_campo(memoria)
+
             elif sub == "2":
                 try:
                     fid = int(input("Informe o field_id: ").strip())
                 except ValueError:
                     print("ID inválido.")
-                    continue
-                plot_serie_perda_por_campo(memoria, fid)
+                else:
+                    plot_serie_perda_por_campo(memoria, fid)
+
+            elif sub == "3":
+                path = save_media_perda_por_campo_png(memoria)
+                if path:
+                    print("Abra no Explorer:", os.path.abspath(path))
+
+            elif sub == "4":
+                try:
+                    fid = int(input("Informe o field_id: ").strip())
+                except ValueError:
+                    print("ID inválido.")
+                else:
+                    path = save_serie_perda_por_campo_png(memoria, fid)
+                    if path:
+                        print("Abra no Explorer:", os.path.abspath(path))
+
             else:
                 print("Opção de gráfico inválida.")
 
@@ -98,5 +123,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
