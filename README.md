@@ -182,21 +182,3 @@ Projeto licenciado sob MIT (ver arquivo LICENSE).
 GitHub
 
 ---
-
-# 3) Ajustar imagens no README e fazer push
-
-Como agora as imagens vivem em `assets/img/`, o README acima já aponta para lá.  
-Se você ainda vai gerar o banner com script:
-
-```bat
-python scripts\gera_banner.py
-git add assets\img\banner_plantia.png
-git commit -m "docs: adiciona banner FIAP no padrão do template"
-git push
-
-
-Depois, faça o commit geral da reorganização:
-
-git add .
-git commit -m "docs: adapta README ao template FIAP e realoca assets/document/scripts"
-git push
