@@ -20,8 +20,8 @@ def pick_font(size):
 def gradient_bg():
     img = Image.new("RGB", (W, H), "#2e7d32")
     draw = ImageDraw.Draw(img)
-    top = (23, 94, 30)   # #175E1E
-    bot = (67, 160, 71)  # #43A047
+    top = (23, 94, 30)
+    bot = (67, 160, 71)
     for y in range(H):
         t = y / H
         rr = int(top[0] + (bot[0]-top[0]) * t)

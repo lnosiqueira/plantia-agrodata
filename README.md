@@ -11,7 +11,7 @@
 - [Leno Siqueira](http://linkedin.com/in/leno-siqueira-36789544) — RM: *567893*
 - [Fred Villagra](https://www.linkedin.com/in/federico-villagra-97378838a) — RM: *567187*
 - [Paulo Benfica](https://www.linkedin.com/in/paulo-benfica-76057a7b) — RM: *567648*
-- [Andréa Mendes](https://www.linkedin.com/in/SEU-LINK) — RM: *568563*
+- [Andréa Mendes](https://www.linkedin.com/in/andr%C3%A9a-mendes-b8959238a) — RM: *568563*
 - [Mateus Lima](https://www.linkedin.com/in/SEU-LINK) — RM: *568518*
 
 ## ‍ Professores:
@@ -63,11 +63,11 @@ Funcionalidades:
 
 > Estrutura alinhada ao template FIAP e às instruções de organização (pasta `assets` para imagens; `document` para documentos). :contentReference[oaicite:2]{index=2}
 
----
+ ---
 
-##  Como executar o código
+## 🚀 Como executar o código
 
-### Pré-requisitos
+### ✅ Pré-requisitos
 
 - **Python 3.11+**
 - Bibliotecas:
@@ -76,7 +76,7 @@ Funcionalidades:
   matplotlib==3.10.6
   numpy==1.25.2
   oracledb==2.4.1
-  
+
   ---
   
   Instalação
@@ -90,10 +90,11 @@ python -m venv .venv
 pip install -r requirements.txt
 
 Executar o sistema
+
 python src/main.py
 
 
-Menu:
+Menu Principal (CLI)
 
 === PlantIA Agrodata — Gestão de Colheita (FIAP) ===
 1) Registrar colheita
@@ -104,27 +105,49 @@ Menu:
 6) Enviar JSON ao Oracle
 0) Sair
 
-Gráficos
+Descrição das Opções
 
-Salvar PNG pelo menu → opção 5 (subopções 3 e 4)
+Opção	Função
+1️⃣ Registrar colheita	Adiciona um novo registro de colheita (manual ou mecânica).
+2️⃣ Resumo por campo	Mostra estatísticas de um campo específico (field_id).
+3️⃣ Resumo geral	Exibe dados consolidados de todos os campos.
+4️⃣ Salvar JSON	Armazena as colheitas no arquivo data/colheita.json.
+5️⃣ Gráficos	Visualiza ou salva PNGs de produtividade/perdas.
+6️⃣ Enviar JSON ao Oracle	Integra os dados locais com o banco Oracle FIAP.
+0️⃣ Sair	Finaliza o programa.
 
-Saída:
+---
+
+Gráficos (mostrar / salvar PNG)
+1. Rode:
+
+python src/main.py
+
+2. Escolha5) Gráficos.
+3. Subopções:
+
+1) Média de perda por campo (barras) [mostrar]
+2) Série temporal de perda por campo (linha) [mostrar]
+3) Salvar PNG: Média de perda por campo
+4) Salvar PNG: Série por field_id
+
+4. Saídas Esperadas
 
 assets/img/media_perda_por_campo.png
-
 assets/img/serie_perda_field_101.png
 
-Abrir no Windows:
+Dica (Windows);
 
 explorer "assets\img"
 
-Integração com Oracle (FIAP)
-Teste de conexão
+ ---
+ 
+ ☁️ Integração com Oracle (FIAP)
+1) Teste de conexão
 
 Edite src/test_oracle.py com suas credenciais FIAP e execute:
 
 python src/test_oracle.py
-
 
 Saída esperada:
 
@@ -132,48 +155,84 @@ Saída esperada:
 🔹 Mensagem: PlantIA conectado à FIAP!
 🔒 Conexão encerrada.
 
-Variáveis de ambiente (recomendado)
+2) Variáveis de ambiente (recomendado)
+
 setx ORACLE_USER "SEU_USUARIO_FIAP"
 setx ORACLE_PASSWORD "SUA_SENHA_FIAP"
 setx ORACLE_DSN "oracle.fiap.com.br:1521/ORCL"
 
-Criar tabela e enviar dados (menu)
+Feche e reabra o terminal após definir.
+
+3) Criar tabela e enviar dados (menu)
 
 A tabela é verificada/criada ao iniciar o app. Para enviar o JSON:
 
 6) Enviar JSON ao Oracle
 
 
-O sistema faz UPSERT (MERGE) baseado em (field_id, TRUNC(data_colheita)) (não duplica).
+O sistema faz UPSERT (MERGE) baseado na chave (field_id, TRUNC(data_colheita)), evitando duplicação.
 
-SQL útil (no SQL Developer)
+4) SQL útil (SQL Developer)
+-- Dados mais recentes
 SELECT id, field_id, metodo, produtividade, perda, TRUNC(data_colheita) AS dia
 FROM colheita
-ORDER BY id DESC FETCH FIRST 10 ROWS ONLY;
+ORDER BY id DESC
+FETCH FIRST 10 ROWS ONLY;
 
+-- Verificar duplicidade por dia/campo
 SELECT field_id, TRUNC(data_colheita) AS dia, COUNT(*) qtd
 FROM colheita
 GROUP BY field_id, TRUNC(data_colheita)
 HAVING COUNT(*) > 1;
 
-FAQ Oracle
+5) FAQ Oracle
+
 Erro	Causa	Solução
-ORA-01017	usuário/senha incorretos	revisar credenciais FIAP
-ORA-12541	listener indisponível	checar DSN/VPN
-ORA-00001	violação de UNIQUE	UPSERT já evita duplicar; revise chave/índice
-Histórico de lançamentos
+ORA-01017	Usuário/senha incorretos	Corrija usuário/senha FIAP
+ORA-12541	Listener indisponível	Verifique DSN/VPN
+ORA-00001	Violação de UNIQUE	O UPSERT já previne duplicações
 
-1.0.0 — 14/10/2025 — Entrega FIAP: JSON + Gráficos + Oracle (UPSERT)
+ ---
+ 
+ Banner e Imagens
 
-0.5.0 — 10/2025 — Integração Oracle inicial, gráficos PNG
+Banner do projeto: assets/img/banner_plantia.png
 
-0.4.0 — 10/2025 — Menu CLI estável
+Gráficos:
 
-0.3.0 — 10/2025 — Persistência JSON
+assets/img/media_perda_por_campo.png
 
-0.2.0 — 10/2025 — Cálculos/Análises
+assets/img/serie_perda_field_101.png
 
-0.1.0 — 10/2025 — Estrutura do projeto
+Se ainda não existirem, gere o banner:
+
+python scripts/gera_banner.py
+
+ ---
+ 
+ Entrega FIAP (Tag)
+
+Crie a tag final da entrega:
+
+git tag -a v1.0-entrega-fiap -m "Entrega PlantIA Agrodata (JSON + Gráficos + Oracle UPSERT)"
+git push origin v1.0-entrega-fiap
+
+
+> Esse bloco já corrige **quebras de linha, blocos de código, ancoragem e o menu** com “0) Sair”. Também aponta as imagens para `assets/img/`.
+
+---
+
+## 4) Commit & push
+
+Depois de colar e salvar o README:
+
+```bat
+git add README.md assets\img\banner_plantia.png
+git commit -m "docs: corrige README (menu 0) Sair, blocos e paths assets/img) + banner"
+git push
+
+
+ ---
 
 Licença
 
