@@ -1,15 +1,27 @@
+# src/main.py
+
+import os
+from typing import List, Dict
+
+from coleta_dados import registrar_colheita
+from analise_dados import resumo_por_campo, resumo_geral
+from persistencia import salvar_json, ler_json
 from graficos import (
     plot_media_perda_por_campo,
     plot_serie_perda_por_campo,
     save_media_perda_por_campo_png,
     save_serie_perda_por_campo_png,
 )
-from coleta_dados import registrar_colheita
-from analise_dados import resumo_por_campo, resumo_geral
-from persistencia import salvar_json, ler_json
-from typing import List, Dict
-import os
 
+# Oracle (opcional, mas tentamos habilitar)
+ORACLE_OK = False
+ORACLE_ERR = None
+try:
+    from persistencia_oracle import criar_tabela, inserir_em_lote
+    ORACLE_OK = True
+except Exception as _e:
+    ORACLE_OK = False
+    ORACLE_ERR = _e
 
 # Caminho do JSON
 DATA_PATH = os.path.join(
@@ -17,7 +29,6 @@ DATA_PATH = os.path.join(
     "data",
     "colheita.json"
 )
-
 
 def carregar_memoria() -> List[Dict]:
     if os.path.exists(DATA_PATH):
@@ -27,7 +38,6 @@ def carregar_memoria() -> List[Dict]:
             print("Aviso: não foi possível ler colheita.json:", e)
     return []
 
-
 def salvar_memoria(mem: List[Dict]) -> None:
     os.makedirs(os.path.dirname(DATA_PATH), exist_ok=True)
     try:
@@ -36,19 +46,31 @@ def salvar_memoria(mem: List[Dict]) -> None:
     except Exception as e:
         print("Erro ao salvar JSON:", e)
 
-
 def menu():
     print("\n=== PlantIA Agrodata — Gestão de Colheita (FIAP) ===")
     print("1) Registrar colheita")
     print("2) Resumo por campo (field_id)")
     print("3) Resumo geral")
     print("4) Salvar dados em JSON")
-    print("5) Gráficos (mostrar/salvar PNG)")
+    print("5) Gráficos (mostrar / salvar PNG)")
+    print("6) Enviar JSON ao Oracle")
     print("0) Sair")
 
-
 def main():
+    # Sinal de vida
+    print(">> Iniciando PlantIA...")
+
     memoria: List[Dict] = carregar_memoria()
+
+    # Tenta garantir a tabela no Oracle (se o módulo existir)
+    if ORACLE_OK:
+        try:
+            criar_tabela()
+        except Exception as e:
+            print("Aviso: Oracle não configurado agora (criar_tabela falhou):", e)
+    else:
+        if ORACLE_ERR:
+            print("Oracle desabilitado (persistencia_oracle indisponível):", ORACLE_ERR)
 
     while True:
         menu()
@@ -98,7 +120,7 @@ def main():
             elif sub == "3":
                 path = save_media_perda_por_campo_png(memoria)
                 if path:
-                    print("Abra no Explorer:", os.path.abspath(path))
+                    print("PNG salvo em:", os.path.abspath(path))
 
             elif sub == "4":
                 try:
@@ -108,10 +130,24 @@ def main():
                 else:
                     path = save_serie_perda_por_campo_png(memoria, fid)
                     if path:
-                        print("Abra no Explorer:", os.path.abspath(path))
+                        print("PNG salvo em:", os.path.abspath(path))
 
             else:
                 print("Opção de gráfico inválida.")
+
+        elif opc == "6":
+            try:
+                data_path = DATA_PATH  # já calculado acima
+                if not os.path.exists(data_path):
+                    print("Arquivo JSON não encontrado em:", data_path)
+                else:
+                    registros = ler_json(data_path)
+                    if not ORACLE_OK:
+                        print("Oracle desabilitado. Verifique persistencia_oracle.py.")
+                    else:
+                        inserir_em_lote(registros)
+            except Exception as e:
+                print("❌ Falha ao enviar ao Oracle:", e)
 
         elif opc == "0":
             print("Saindo... Até logo!")
@@ -119,7 +155,6 @@ def main():
 
         else:
             print("Opção inválida.")
-
 
 if __name__ == "__main__":
     main()
