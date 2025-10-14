@@ -1,9 +1,12 @@
-🌾 PlantIA Agrodata — FIAP
+
+🌾 PLANTIA AGRODATA — FIAP
 
 Sistema de Gestão Inteligente de Colheita de Cana-de-Açúcar
 Projeto acadêmico — Python (Cap. 3 a 6) — Curso de Inteligência Artificial (FIAP)
 
-📘 Sobre o Projeto
+_________________________________________________________________________________________________________________________________________________________
+
+📘 SOBRE O PROJETO
 
 O PlantIA Agrodata é um sistema em Python para monitoramento e análise de dados da colheita de cana-de-açúcar.
 Foco em Agrotech: registro de colheita, cálculo de perdas, visualização de gráficos e persistência em JSON e Oracle (com UPSERT para evitar duplicação).
@@ -18,7 +21,9 @@ Manipulação de arquivos (texto/JSON)
 
 Conexão com Banco de Dados (Oracle)
 
-🧠 Objetivo
+_________________________________________________________________________________________________________________________________________________________
+
+🧠 OBJETIVO
 
 Fornecer uma ferramenta didática que:
 
@@ -30,7 +35,10 @@ Persista dados em JSON e Oracle (FIAP);
 
 Gere gráficos de médias e séries temporais.
 
-🗂️ Estrutura do Repositório
+_________________________________________________________________________________________________________________________________________________________
+
+🗂️ ESTRUTURA DO REPOSITÓRIO
+
 plantia-agrodata/
 │
 ├── src/                      # Código-fonte
@@ -55,7 +63,9 @@ plantia-agrodata/
 ├── LICENSE
 └── README.md
 
-⚙️ Instalação
+_________________________________________________________________________________________________________________________________________________________
+
+⚙️ INSTALAÇÃO
 
 Pré-requisitos:
 
@@ -69,7 +79,9 @@ Instale as dependências:
 
 pip install -r requirements.txt
 
-▶️ Como Executar
+___________________________________________________________________________________________________________________________________________________________
+
+▶️ COMO EXECUTAR
 
 Menu do sistema
 
@@ -100,7 +112,9 @@ Exemplos (adicione seus prints no repo):
 docs/img/media_perda_por_campo.png
 docs/img/serie_perda_field_101.png
 
-💾 JSON de Exemplo (data/colheita.json)
+___________________________________________________________________________________________________________________________________________________________
+
+💾 JSON DE EXEMPLO (data/colheita.json)
 [
   {"field_id": 101, "method": "mecanica", "area_ha": 12.5, "loss_percentage": 3.2, "date": "2025-10-14"},
   {"field_id": 102, "method": "manual",   "area_ha": 10.0, "loss_percentage": 1.8, "date": "2025-10-14"},
@@ -110,7 +124,9 @@ docs/img/serie_perda_field_101.png
 
 date é opcional. Se não informado, o sistema usa a data de hoje na integração Oracle.
 
-☁️ Integração com Oracle (FIAP)
+____________________________________________________________________________________________________________________________________________________________________________
+
+☁️ INTEGRAÇÃO COM ORACLE (FIAP)
 
 A integração com Oracle foi implementada usando o driver oracledb e realiza UPSERT (MERGE) para não duplicar registros. A chave natural é (field_id, TRUNC(data_colheita)).
 
@@ -142,13 +158,15 @@ Execute:
 python src/test_oracle.py
 
 
-Saída esperada:
+SAÍDA ESPERADA:
 
 ✅ Conexão bem-sucedida com o Oracle (FIAP)!
 🔹 Mensagem: PlantIA conectado à FIAP!
 🔒 Conexão encerrada.
 
-2) Configurar credenciais de forma segura (opcional, recomendado)
+____________________________________________________________________________________________________________________________________________________________________________
+
+2) CONFIGURAR CREDENCIAIS DE FORMA SEGURA (OPCIONAL, RECOMENDADO)
 
 No Windows, defina variáveis de ambiente (uma vez):
 
@@ -167,7 +185,9 @@ DB_DSN = os.getenv("ORACLE_DSN", "oracle.fiap.com.br:1521/ORCL")
 
 Feche e reabra o terminal após setx.
 
-3) Criar tabela e enviar dados (menu integrado)
+______________________________________________________________________________________________________________________________________________________________________________
+
+3) CRIAR TABELA E ENVIAR DADOS (MENU INTEGRADO)
 
 Ao iniciar o app, a tabela é garantida:
 
@@ -188,7 +208,9 @@ Executando novamente:
 
 (Não duplica — atualiza se já existir para aquele field_id no mesmo dia).
 
-4) Como funciona o UPSERT (MERGE)
+_________________________________________________________________________________________________________________________________________________________________________________
+
+4) COMO FUNCIONA O UPSERT (MERGE)
 
 Trecho essencial (persistencia_oracle.py):
 
@@ -212,13 +234,16 @@ WHEN NOT MATCHED THEN
   VALUES (src.field_id, src.tipo_colheita, src.area_ha, src.perda_percent, src.dt)
 
 
-Opcional (no banco): criar unicidade para reforçar:
+OPCIONAL (NO BANCO): criar unicidade para reforçar:
 
 -- após deduplicar dados existentes:
 CREATE UNIQUE INDEX ux_colheita_field_date
   ON colheita (field_id, TRUNC(data_colheita));
+  
+  ______________________________________________________________________________________________________________________________________________________________________________________
 
-5) Consultas úteis no Oracle
+5) CONSULTAS ÚTEIS NO ORACLE
+
 -- Amostra dos últimos registros
 SELECT id, field_id, tipo_colheita, area_ha, perda_percent, TRUNC(data_colheita) dia
 FROM colheita
@@ -230,7 +255,9 @@ FROM colheita
 GROUP BY field_id, TRUNC(data_colheita)
 HAVING COUNT(*) > 1;
 
-6) Solução de Problemas (FAQ)
+_________________________________________________________________________________________________________________________________________________________________________________________
+
+6) SOLUÇÃO DE PROBLEMAS (FAQ)
 
 ORA-01017: invalid username/password
 
@@ -249,7 +276,9 @@ Você já tem restrição UNIQUE em (field_id, TRUNC(data_colheita)) e tentou IN
 
 Use a opção 6 (UPSERT) ou garanta que o persistencia_oracle.py usa o MERGE.
 
-🧩 Requisitos (Cap. 3–6) — Onde está no código
+______________________________________________________________________________________________________________________________________________________________________________________________
+
+🧩 REQUISITOS (CAP. 3–6) — ONDE ESTÁ NO CÓDIGO
 
 Subalgoritmos: coleta_dados.py, analise_dados.py, graficos.py, persistencia.py, persistencia_oracle.py
 
@@ -259,7 +288,9 @@ Arquivos (JSON): persistencia.py e data/colheita.json
 
 Banco (Oracle): persistencia_oracle.py (criação de tabela, UPSERT, listagem)
 
-📦 Entrega (FIAP)
+________________________________________________________________________________________________________________________________________________________________________________________________
+
+📦 ENTREGA (FIAP)
 
 Rodar localmente:
 python src/main.py → registrar, salvar JSON, gerar gráficos, enviar ao Oracle.
@@ -274,21 +305,29 @@ git commit -m "release: v1.0 PlantIA (JSON + Gráficos + Oracle UPSERT)"
 git tag -a v1.0-entrega-fiap -m "Primeira entrega completa"
 git push && git push origin v1.0-entrega-fiap
 
-🧪 Reprodutibilidade
+__________________________________________________________________________________________________________________________________________________________________________________________________
+
+🧪 REPRODUTIBILIDADE
+
 git clone https://github.com/SEU_USUARIO/plantia-agrodata.git
 cd plantia-agrodata
 pip install -r requirements.txt
 python src/test_oracle.py         # (opcional) testa Oracle
 python src/main.py                # roda o sistema
 
-👤 Autor
+___________________________________________________________________________________________________________________________________________________________________________________________________
 
-Leno Siqueira, 
-📧 lnosiqueira@gmail.com
+👤 AUTORES
+
+Leno Siqueira
+📧 lsiqueira@lnotecnologia.com.br
 
 💡 FIAP — Inteligência Artificial
 🌱 Projeto: PlantIA Agrodata
 
-📜 Licença
+____________________________________________________________________________________________________________________________________________________________________________________________________
+
+📜 LICENÇA
 
 MIT
+
