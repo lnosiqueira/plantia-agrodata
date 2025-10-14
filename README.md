@@ -122,7 +122,7 @@ ________________________________________________________________________________
 ]
 
 
-date é opcional. Se não informado, o sistema usa a data de hoje na integração Oracle.
+Date é opcional. Se não informado, o sistema usa a data de hoje na integração Oracle.
 
 ____________________________________________________________________________________________________________________________________________________________________________
 
