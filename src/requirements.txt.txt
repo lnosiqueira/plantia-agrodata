@@ -1,7 +1,0 @@
-# PlantIA Agrodata - FIAP
-# Dependências do projeto acadêmico em Python
-matplotlib==3.9.2
-pandas==2.2.2
-cx_Oracle==8.3.0
-numpy==2.1.1
-
