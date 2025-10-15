@@ -91,12 +91,6 @@ Criar uma ferramenta simples e didática para:
 
 ---
 
-## 🗂️ Estrutura do Projeto <a id="estrutura-do-projeto"></a>
-
-
-
----
-
 ## 🗂️ Estrutura do Projeto <a id="estrutura"></a>
 ```
 plantia-agrodata/
