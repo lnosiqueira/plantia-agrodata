@@ -183,6 +183,17 @@ python src/test_oracle.py
 6) Enviar JSON ao Oracle
 0) Sair
 ```
+---
+
+## 🗃 Histórico de Lançamentos
+
+| Versão | Data | Descrição |
+|--------|------|-----------|
+| **0.5.0** | 14/10/2025 | Integração completa com Oracle FIAP + gráficos e relatório final |
+| **0.4.0** | 12/10/2025 | Implementação do módulo de persistência Oracle e JSON |
+| **0.3.0** | 10/10/2025 | Criação do menu principal e cálculo de perdas (%) |
+| **0.2.0** | 08/10/2025 | Estrutura de pastas, coleta de dados e validações |
+| **0.1.0** | 06/10/2025 | Início do projeto, definição de escopo e setup inicial |
 
 ---
 
