@@ -26,9 +26,8 @@
 - [🧩 Demonstração do Menu Principal](#demonstração-do-menu-principal)
 - [🗃 Histórico de Lançamentos](#histórico-de-lançamentos)
 - [👨‍💻 Autores e Créditos](#autores-e-créditos)
-- [📜 Licença](#licenca)
 - [🔗 Repositório e Evidência de Versionamento](#repositorio-e-evidencia-de-versionamento)
-
+- [📜 Licença](#licenca)
 
 ---
 
