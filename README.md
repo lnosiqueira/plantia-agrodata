@@ -33,7 +33,7 @@
 | Nome | RM |
 |------|----|
 | [**Leno Siqueira**](https://www.linkedin.com/in/leno-siqueira-36789544) | **RM567893** |
-| [**Federico Villagra**](https://www.linkedin.com/in/federico-villagra-97378838a) | **RM567187** |
+| [**Fred Villagra**](https://www.linkedin.com/in/federico-villagra-97378838a) | **RM567187** |
 | [**Paulo Benfica**](https://www.linkedin.com/in/paulo-benfica-76057a7b) | **RM567648** |
 | [**Maria Mendes**](https://www.linkedin.com/in/andr%C3%A9a-mendes-b8959238a) | **RM568563** |
 | [**Mateus Lima**](https://www.linkedin.com/in/math-penteado-1b4807200) | **RM568518** |
@@ -177,7 +177,11 @@ python src/test_oracle.py
 
 ## 👨‍💻 Autores e Créditos <a id="autores"></a>
 **Desenvolvido por:**  
-👤 **Leno Siqueira** – `lnosiqueira@gmail.com`  
+👤 **Leno Siqueira** – `lnosiqueira@gmail.com`
+👤 **Fred Villagra** – `federicoenriquevillagra@gmail.com`
+👤 **Paulo Benfica** – `paulo.benfica@outlook.com`
+👤 **Maria Mendes** – `mdea.mendes@gmail.com`
+👤 **Mateus Lima** – `mateusstockcar@gmail.com`  
 📘 **FIAP — Faculdade de Informática e Administração Paulista**  
 📅 **Ano:** 2025  
 📚 **Curso:** Inteligência Artificial  
