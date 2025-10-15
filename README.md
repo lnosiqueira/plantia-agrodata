@@ -40,6 +40,17 @@
 
 ---
 
+## 🧑‍🏫 Professores:
+
+**Tutor(a)**  
+- [**Sabrina Otoni**](https://www.linkedin.com/in/exemplo)
+
+**Coordenador(a)**  
+- [**André Godoi**](https://www.linkedin.com/in/exemplo)
+
+---
+
+
 ## 📘 Sobre o Projeto <a id="sobre"></a>
 O **PlantIA Agrodata** é um sistema desenvolvido em **Python** com foco no **agronegócio**, voltado ao **monitoramento e análise de dados da colheita de cana-de-açúcar**.  
 O sistema integra análise de dados, automação de processos e conexão real com o banco de dados **Oracle Cloud (FIAP)**.
