@@ -31,7 +31,7 @@
 
 ---
 
-## 👥 Integrantes do Grupo S <a id="integrantes"></a>
+## 👥 Integrantes do Grupo S <a name="integrantes"></a>
 
 | Nome | RM |
 |------|----|
@@ -92,7 +92,7 @@ Criar uma ferramenta simples e didática para:
 
 ---
 
-## 🗂️ Estrutura do Projeto <a id="estrutura"></a>
+## 🗂️ Estrutura do Projeto <a name="estrutura"></a>
 ```
 plantia-agrodata/
 │
@@ -134,7 +134,7 @@ Dentre os arquivos e pastas presentes na raiz do projeto, definem-se:
 
 ---
 
-## ▶️ Como Executar o Sistema <a id="execucao"></a>
+## ▶️ Como Executar o Sistema <a name="execucao"></a>
 
 ### Pré-requisitos:
 - Python 3.11+  
@@ -238,6 +238,6 @@ python src/test_oracle.py
 
 ---
 
-## 📜 Licença <a id="licenca"></a>
+## 📜 Licença <a name="licenca"></a>
 Este projeto está licenciado sob a **Licença MIT** — uso livre para fins acadêmicos e de aprendizado.  
 © 2025 — FIAP / PlantIA Agrodata
