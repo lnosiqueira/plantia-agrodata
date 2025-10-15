@@ -13,18 +13,21 @@
 
 ---
 
-## 🧭 Sumário <a id="sumario"></a>
+## 🧭 Sumário
 - [👥 Integrantes do Grupo](#integrantes)
-- [📘 Sobre o Projeto](#sobre)
+- [🧑‍🏫 Professores](#professores)
+- [📘 Sobre o Projeto](#sobre-o-projeto)
 - [🎯 Objetivo](#objetivo)
 - [⚙️ Funcionalidades](#funcionalidades)
-- [🗂️ Estrutura do Projeto](#estrutura)
-- [▶️ Como Executar o Sistema](#execucao)
-- [🧠 Integração com Banco de Dados Oracle (FIAP)](#oracle)
-- [📊 Geração de Gráficos](#graficos)
-- [🧩 Demonstração do Menu Principal](#menu)
-- [👨‍💻 Autores e Créditos](#autores)
-- [📜 Licença](#licenca)
+- [🗂️ Estrutura do Projeto](#estrutura-do-projeto)
+- [📁 Estrutura de Pastas (FIAP)](#estrutura-de-pastas-fiap)
+- [▶️ Como Executar o Sistema](#como-executar-o-sistema)
+- [🧠 Integração com Banco de Dados Oracle (FIAP)](#integração-com-banco-de-dados-oracle-fiap)
+- [📊 Geração de Gráficos](#geração-de-gráficos)
+- [🧩 Demonstração do Menu Principal](#demonstração-do-menu-principal)
+- [🗃 Histórico de Lançamentos](#histórico-de-lançamentos)
+- [👨‍💻 Autores e Créditos](#autores-e-créditos)
+- [📜 Licença](#licença)
 
 ---
 
@@ -203,13 +206,13 @@ python src/test_oracle.py
 
 ## 🗃 Histórico de Lançamentos
 
-| Versão | Data | Descrição |
-|--------|------|-----------|
-| **0.5.0** | 14/10/2025 | Integração completa com Oracle FIAP + gráficos e relatório final |
-| **0.4.0** | 12/10/2025 | Implementação do módulo de persistência Oracle e JSON |
-| **0.3.0** | 10/10/2025 | Criação do menu principal e cálculo de perdas (%) |
-| **0.2.0** | 08/10/2025 | Estrutura de pastas, coleta de dados e validações |
-| **0.1.0** | 06/10/2025 | Início do projeto, definição de escopo e setup inicial |
+| Versão    | Data       | Descrição                                             |
+| --------- | ---------- | ----------------------------------------------------- |
+| **1.0.0** | 14/10/2025 | Entrega final FIAP: JSON + Gráficos + Oracle (UPSERT) |
+| **0.4.0** | 12/10/2025 | Persistência Oracle/JSON e testes                     |
+| **0.3.0** | 10/10/2025 | Menu principal e cálculo de perdas                    |
+| **0.2.0** | 08/10/2025 | Estrutura de pastas, coleta e validações              |
+| **0.1.0** | 06/10/2025 | Kickoff do projeto e setup inicial                    |
 
 ---
 
