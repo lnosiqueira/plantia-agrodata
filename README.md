@@ -13,7 +13,7 @@
 ---
 
 ## 🧭 Sumário
-- [👥 Integrantes do Grupo](#integrantes)
+- [👥 Integrantes do Grupo](#integrantes-do-grupo)
 - [🧑‍🏫 Professores](#professores)
 - [📘 Sobre o Projeto](#sobre-o-projeto)
 - [🎯 Objetivo](#objetivo)
@@ -27,6 +27,7 @@
 - [🗃 Histórico de Lançamentos](#histórico-de-lançamentos)
 - [👨‍💻 Autores e Créditos](#autores-e-créditos)
 - [📜 Licença](#licença)
+
 
 ---
 
