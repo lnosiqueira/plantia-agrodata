@@ -237,7 +237,7 @@ python src/test_oracle.py
 
 ---
 
-## 🔗 Repositório Oficial do Projeto
+## 🔗📎 Repositório e Evidência de Versionamento
 
 **GitHub:** [https://github.com/lnosiqueira/plantia-agrodata](https://github.com/lnosiqueira/plantia-agrodata)
 
