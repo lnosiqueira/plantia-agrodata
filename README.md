@@ -178,10 +178,15 @@ python src/test_oracle.py
 ## 👨‍💻 Autores e Créditos <a id="autores"></a>
 **Desenvolvido por:**  
 👤 **Leno Siqueira** – `lnosiqueira@gmail.com`
+
 👤 **Fred Villagra** – `federicoenriquevillagra@gmail.com`
+
 👤 **Paulo Benfica** – `paulo.benfica@outlook.com`
+
 👤 **Maria Mendes** – `mdea.mendes@gmail.com`
-👤 **Mateus Lima** – `mateusstockcar@gmail.com`  
+
+👤 **Mateus Lima** – `mateusstockcar@gmail.com`
+  
 📘 **FIAP — Faculdade de Informática e Administração Paulista**  
 📅 **Ano:** 2025  
 📚 **Curso:** Inteligência Artificial  
