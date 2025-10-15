@@ -31,7 +31,7 @@
 
 ---
 
-## 👥 Integrantes do Grupo <a id="integrantes"></a>
+## 👥 Integrantes do Grupo S <a id="integrantes"></a>
 
 | Nome | RM |
 |------|----|
