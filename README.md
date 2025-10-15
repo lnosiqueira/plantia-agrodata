@@ -31,7 +31,7 @@
 ## 👥 Integrantes do Grupo <a id="integrantes"></a>
 | Nome | RM | LinkedIn |
 |------|----|-----------|
-| **Leno Siqueira** | **RM567893** | [LinkedIn](http://linkedin.com/in/leno-siqueira-36789544) |
+| **Leno Siqueira** | **RM567893** | [LinkedIn](https://linkedin.com/in/leno-siqueira-36789544) |
 | **Fred Vilagra** | **RM567187** | [LinkedIn](https://www.linkedin.com/in/federico-villagra-97378838a) |
 | **Paulo Benfica** | **RM567648** | [LinkedIn]((https://www.linkedin.com/in/paulo-benfica-76057a7b) |
 | **Mateus Lima** | **RM568518** | [LinkedIn]((https://www.linkedin.com/in/andr%C3%A9a-mendes-b8959238a) |
