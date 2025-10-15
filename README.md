@@ -33,9 +33,10 @@
 | Nome | RM |
 |------|----|
 | [**Leno Siqueira**](https://www.linkedin.com/in/leno-siqueira-36789544) | **RM567893** |
-| [**Integrante 2**](https://www.linkedin.com/in/exemplo) | RMXXXXXX |
-| [**Integrante 3**](https://www.linkedin.com/in/exemplo) | RMXXXXXX |
-| [**Integrante 4**](https://www.linkedin.com/in/exemplo) | RMXXXXXX |
+| [**Federico Villagra**](https://www.linkedin.com/in/federico-villagra-97378838a) | RM567187 |
+| [**Paulo Benfica**]((https://www.linkedin.com/in/paulo-benfica-76057a7b) | RM567648 |
+| [**Maria Mendes**](https://www.linkedin.com/in/andr%C3%A9a-mendes-b8959238a) | RM568563 |
+| [**Mateus Lima**](https://www.linkedin.com/in/math-penteado-1b4807200) | RM568518 |
 
 ---
 
