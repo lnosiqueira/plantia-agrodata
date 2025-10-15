@@ -1,4 +1,3 @@
-
 <p align="center">
   <img src="assets/img/banner_plantia.png" width="100%" alt="PlantIA Agrodata - FIAP">
 </p>
@@ -53,9 +52,11 @@
 
 ---
 
+## 📘 Sobre o Projeto <a id="sobre-o-projeto"></a>
 
-## 📘 Sobre o Projeto <a id="sobre"></a>
-O **PlantIA Agrodata** é um sistema desenvolvido em **Python** com foco no **agronegócio**, voltado ao **monitoramento e análise de dados da colheita de cana-de-açúcar**.  
+O **PlantIA Agrodata** é um sistema desenvolvido em **Python** com foco no **agronegócio**,  
+voltado ao **monitoramento e análise de dados da colheita de cana-de-açúcar**.  
+
 O sistema integra análise de dados, automação de processos e conexão real com o banco de dados **Oracle Cloud (FIAP)**.
 
 💡 Este projeto une conceitos de:
@@ -67,6 +68,7 @@ O sistema integra análise de dados, automação de processos e conexão real co
 ---
 
 ## 🎯 Objetivo <a id="objetivo"></a>
+
 Criar uma ferramenta simples e didática para:
 - Monitorar colheitas de cana-de-açúcar  
 - Calcular perdas e produtividade automaticamente  
@@ -86,6 +88,12 @@ Criar uma ferramenta simples e didática para:
 | 5️⃣ | **Conexão Oracle FIAP** | Envia dados do JSON para o banco Oracle |
 | 6️⃣ | **Geração de Gráficos** | Gera e exporta gráficos em PNG |
 | 7️⃣ | **Interface CLI** | Menu intuitivo via terminal |
+
+---
+
+## 🗂️ Estrutura do Projeto <a id="estrutura-do-projeto"></a>
+
+
 
 ---
 
@@ -240,3 +248,32 @@ Este projeto está licenciado sob a **Licença MIT** — uso livre para fins aca
 © 2025 — FIAP / PlantIA Agrodata
 
 
+
+
+
+
+
+
+
+
+## 👥 Integrantes do Grupo S <a id="integrantes"></a>
+
+| Nome | RM |
+|------|----|
+| [**Leno Siqueira**](https://www.linkedin.com/in/leno-siqueira-36789544) | **RM567893** |
+| [**Fred Villagra**](https://www.linkedin.com/in/federico-villagra-97378838a) | **RM567187** |
+| [**Paulo Benfica**](https://www.linkedin.com/in/paulo-benfica-76057a7b) | **RM567648** |
+| [**Maria Mendes**](https://www.linkedin.com/in/andr%C3%A9a-mendes-b8959238a) | **RM568563** |
+| [**Mateus Lima**](https://www.linkedin.com/in/math-penteado-1b4807200) | **RM568518** |
+
+
+
+
+
+## 🧑‍🏫 Professores:
+
+**Tutor(a)**  
+- [**Sabrina Otoni**](https://www.linkedin.com/in/sabrina-otoni-22525519b)
+
+**Coordenador(a)**  
+- [**André Godoi**](https://www.linkedin.com/company/inova-fusca)
