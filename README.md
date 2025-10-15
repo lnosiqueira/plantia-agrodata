@@ -176,7 +176,8 @@ python src/test_oracle.py
 ---
 
 ## 👨‍💻 Autores e Créditos <a id="autores"></a>
-**Desenvolvido por:**  
+**Desenvolvido por:**
+  
 👤 **Leno Siqueira** – `lnosiqueira@gmail.com`
 
 👤 **Fred Villagra** – `federicoenriquevillagra@gmail.com`
