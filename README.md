@@ -27,6 +27,7 @@
 - [🗃 Histórico de Lançamentos](#histórico-de-lançamentos)
 - [👨‍💻 Autores e Créditos](#autores-e-créditos)
 - [📜 Licença](#licenca)
+- [🔗 Repositório e Evidência de Versionamento](#repositorio-e-evidencia-de-versionamento)
 
 
 ---
@@ -237,7 +238,7 @@ python src/test_oracle.py
 
 ---
 
-## 🔗📎 Repositório e Evidência de Versionamento
+## 🔗 Repositório e Evidência de Versionamento <a name="como-executar"></a>
 
 **GitHub:** [https://github.com/lnosiqueira/plantia-agrodata](https://github.com/lnosiqueira/plantia-agrodata)
 
