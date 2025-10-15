@@ -43,7 +43,7 @@
 
 ---
 
-## 🧑‍🏫 Professores:
+## 🧑‍🏫 Professores: <a id="professores"></a>
 
 **Tutor(a)**  
 - [**Sabrina Otoni**](https://www.linkedin.com/in/sabrina-otoni-22525519b)
@@ -118,7 +118,7 @@ plantia-agrodata/
 
 ---
 
-## 📁 Estrutura de Pastas
+## 📁 Estrutura de Pastas <a id="estrutura-de-pastas-fiap"></a>
 
 Dentre os arquivos e pastas presentes na raiz do projeto, definem-se:
 
@@ -165,7 +165,7 @@ python src/main.py
 
 ---
 
-## 🧠 Integração com Banco de Dados Oracle (FIAP) <a id="oracle"></a>
+## 🧠 Integração com Banco de Dados Oracle (FIAP) <a id="integração-com-banco-de-dados-oracle-fiap"></a>
 
 O PlantIA integra-se ao banco **Oracle Cloud (FIAP)** para armazenar registros de colheitas.
 
@@ -182,7 +182,7 @@ python src/test_oracle.py
 
 ---
 
-## 📊 Geração de Gráficos <a id="graficos"></a>
+## 📊 Geração de Gráficos <a id="geração-de-gráficos"></a>
 
 ### Média de perda por campo:
 `assets/img/media_perda_por_campo.png`
@@ -194,7 +194,7 @@ python src/test_oracle.py
 
 ---
 
-## 🧩 Demonstração do Menu Principal <a id="menu"></a>
+## 🧩 Demonstração do Menu Principal <a id="demonstração-do-menu-principal"></a>
 ```
 === PlantIA Agrodata — Gestão de Colheita (FIAP) ===
 1) Registrar colheita
@@ -207,7 +207,7 @@ python src/test_oracle.py
 ```
 ---
 
-## 🗃 Histórico de Lançamentos
+## 🗃 Histórico de Lançamentos <a id="histórico-de-lançamentos"></a>
 
 | Versão    | Data       | Descrição                                             |
 | --------- | ---------- | ----------------------------------------------------- |
@@ -219,7 +219,7 @@ python src/test_oracle.py
 
 ---
 
-## 👨‍💻 Autores e Créditos <a id="autores"></a>
+## 👨‍💻 Autores e Créditos <a id="autores-e-créditos"></a>
 **Desenvolvido por:**
   
 👤 **Leno Siqueira** – `lnosiqueira@gmail.com`
@@ -241,34 +241,3 @@ python src/test_oracle.py
 ## 📜 Licença <a id="licenca"></a>
 Este projeto está licenciado sob a **Licença MIT** — uso livre para fins acadêmicos e de aprendizado.  
 © 2025 — FIAP / PlantIA Agrodata
-
-
-
-
-
-
-
-
-
-
-## 👥 Integrantes do Grupo S <a id="integrantes"></a>
-
-| Nome | RM |
-|------|----|
-| [**Leno Siqueira**](https://www.linkedin.com/in/leno-siqueira-36789544) | **RM567893** |
-| [**Fred Villagra**](https://www.linkedin.com/in/federico-villagra-97378838a) | **RM567187** |
-| [**Paulo Benfica**](https://www.linkedin.com/in/paulo-benfica-76057a7b) | **RM567648** |
-| [**Maria Mendes**](https://www.linkedin.com/in/andr%C3%A9a-mendes-b8959238a) | **RM568563** |
-| [**Mateus Lima**](https://www.linkedin.com/in/math-penteado-1b4807200) | **RM568518** |
-
-
-
-
-
-## 🧑‍🏫 Professores:
-
-**Tutor(a)**  
-- [**Sabrina Otoni**](https://www.linkedin.com/in/sabrina-otoni-22525519b)
-
-**Coordenador(a)**  
-- [**André Godoi**](https://www.linkedin.com/company/inova-fusca)
