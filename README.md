@@ -112,6 +112,22 @@ plantia-agrodata/
 
 ---
 
+## 📁 Estrutura de Pastas
+
+Dentre os arquivos e pastas presentes na raiz do projeto, definem-se:
+
+| Pasta / Arquivo | Descrição |
+|------------------|-----------|
+| **.github/** | Arquivos de configuração do GitHub para automação e integração contínua. |
+| **assets/** | Contém imagens, banners e outros elementos visuais. |
+| **config/** | Arquivos de configuração usados para definir parâmetros e ajustes do projeto. |
+| **document/** | Documentos gerais do projeto e relatórios. Subpasta `other/` para anexos complementares. |
+| **scripts/** | Scripts auxiliares (ex: backup, deploy, migração de banco). |
+| **src/** | Código-fonte principal do sistema desenvolvido nas fases do projeto. |
+| **README.md** | Guia e explicação geral sobre o projeto. |
+
+---
+
 ## ▶️ Como Executar o Sistema <a id="execucao"></a>
 
 ### Pré-requisitos:
