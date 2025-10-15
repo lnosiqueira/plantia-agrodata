@@ -237,6 +237,18 @@ python src/test_oracle.py
 
 ---
 
+## 🔗 Repositório Oficial do Projeto
+
+**GitHub:** [https://github.com/lnosiqueira/plantia-agrodata](https://github.com/lnosiqueira/plantia-agrodata)
+
+O repositório contém:
+- Histórico completo de commits e versões (controle de versionamento Git);
+- Estrutura modular (src, assets, document, data);
+- Arquivos de documentação FIAP (README, Guia Prático, Roteiro de Defesa);
+- Códigos-fonte e scripts originais do PlantIA Agrodata (Grupo S).
+
+---
+
 ## 📜 Licença <a name="licenca"></a>
 Este projeto está licenciado sob a **Licença MIT** — uso livre para fins acadêmicos e de aprendizado.  
 © 2025 — FIAP / PlantIA Agrodata
