@@ -238,7 +238,7 @@ python src/test_oracle.py
 
 ---
 
-## 🔗 Repositório e Evidência de Versionamento <a name="como-executar"></a>
+## 🔗 Repositório e Evidência de Versionamento <a name="Repositório e Evidência de Versionamento"></a>
 
 **GitHub:** [https://github.com/lnosiqueira/plantia-agrodata](https://github.com/lnosiqueira/plantia-agrodata)
 
