@@ -1,3 +1,4 @@
+
 <p align="center">
   <img src="assets/img/banner_plantia.png" width="100%" alt="PlantIA Agrodata - FIAP">
 </p>
@@ -12,46 +13,59 @@
 
 ---
 
-## 🧭 **Sumário**
-1. [Sobre o Projeto](#sobre-o-projeto)
-2. [Objetivo](#objetivo)
-3. [Funcionalidades](#funcionalidades)
-4. [Estrutura do Projeto](#estrutura-do-projeto)
-5. [Como Executar o Sistema](#como-executar-o-sistema)
-6. [Integração com Banco de Dados Oracle (FIAP)](#integração-com-banco-de-dados-oracle-fiap)
-7. [Geração de Gráficos](#geração-de-gráficos)
-8. [Demonstração do Menu Principal](#demonstração-do-menu-principal)
-9. [Autores e Créditos](#autores-e-créditos)
-10. [Licença](#licença)
+## 🧭 Sumário <a id="sumario"></a>
+- [👥 Integrantes do Grupo](#integrantes)
+- [📘 Sobre o Projeto](#sobre)
+- [🎯 Objetivo](#objetivo)
+- [⚙️ Funcionalidades](#funcionalidades)
+- [🗂️ Estrutura do Projeto](#estrutura)
+- [▶️ Como Executar o Sistema](#execucao)
+- [🧠 Integração com Banco de Dados Oracle (FIAP)](#oracle)
+- [📊 Geração de Gráficos](#graficos)
+- [🧩 Demonstração do Menu Principal](#menu)
+- [👨‍💻 Autores e Créditos](#autores)
+- [📜 Licença](#licenca)
 
 ---
 
-## 📘 **Sobre o Projeto**
-O **PlantIA Agrodata** é um sistema desenvolvido em **Python** com foco no **agronegócio**, voltado ao **monitoramento e análise de dados da colheita de cana-de-açúcar**.  
-O sistema integra análise de dados, automação de processos e conexão real com banco de dados **Oracle Cloud (FIAP)**.
+## 👥 Integrantes do Grupo <a id="integrantes"></a>
+| Nome | RM | LinkedIn |
+|------|----|-----------|
+| **Leno Siqueira** | **RM567893** | [LinkedIn](http://linkedin.com/in/leno-siqueira-36789544) |
+| **Fred Vilagra** | **RM567187** | [LinkedIn](https://www.linkedin.com/in/federico-villagra-97378838a) |
+| **Paulo Benfica** | **RM567648** | [LinkedIn]((https://www.linkedin.com/in/paulo-benfica-76057a7b) |
+| **Mateus Lima** | **RM568518** | [LinkedIn]((https://www.linkedin.com/in/andr%C3%A9a-mendes-b8959238a) |
+| **Maria Mendes** | **RM568518** | [LinkedIn]((https://www.linkedin.com/in/math-penteado-1b4807200/) |
 
-💡 O projeto une conceitos de:
+---
+
+## 📘 Sobre o Projeto <a id="sobre"></a>
+O **PlantIA Agrodata** é um sistema desenvolvido em **Python** com foco no **agronegócio**, voltado ao **monitoramento e análise de dados da colheita de cana-de-açúcar**.  
+O sistema integra análise de dados, automação de processos e conexão real com o banco de dados **Oracle Cloud (FIAP)**.
+
+💡 Este projeto une conceitos de:
 - Inteligência Artificial aplicada ao Agronegócio  
-- Estrutura de dados em Python  
-- Persistência e integração com banco de dados Oracle  
+- Estruturas de Dados em Python  
+- Persistência com arquivos JSON e Oracle  
 - Visualização analítica com **Matplotlib**
 
 ---
 
-## 🎯 **Objetivo**
+## 🎯 Objetivo <a id="objetivo"></a>
 Criar uma ferramenta simples e didática para:
-- Monitorar colheitas de cana-de-açúcar;
-- Calcular perdas e produtividade automaticamente;
-- Armazenar dados em **JSON** e no **Oracle Database**;
-- Gerar **gráficos analíticos** para tomada de decisão no campo.
+- Monitorar colheitas de cana-de-açúcar  
+- Calcular perdas e produtividade automaticamente  
+- Armazenar dados em JSON e no Oracle Database  
+- Gerar gráficos analíticos para suporte à decisão  
 
 ---
 
-## ⚙️ **Funcionalidades**
+## ⚙️ Funcionalidades <a id="funcionalidades"></a>
+
 | Nº | Funcionalidade | Descrição |
-|----|----------------|------------|
-| 1️⃣ | **Cadastro de Colheita** | Inserção manual de dados da colheita |
-| 2️⃣ | **Cálculo de Perdas** | Cálculo automático da perda (%) por campo |
+|----|----------------|-----------|
+| 1️⃣ | **Cadastro de Colheita** | Inserção manual de dados de colheita |
+| 2️⃣ | **Cálculo de Perdas** | Cálculo automático da perda (%) |
 | 3️⃣ | **Resumo Analítico** | Exibe médias e totais de produtividade |
 | 4️⃣ | **Persistência JSON** | Salva e lê dados localmente |
 | 5️⃣ | **Conexão Oracle FIAP** | Envia dados do JSON para o banco Oracle |
@@ -60,20 +74,20 @@ Criar uma ferramenta simples e didática para:
 
 ---
 
-## 🗂️ **Estrutura do Projeto**
+## 🗂️ Estrutura do Projeto <a id="estrutura"></a>
 ```
 plantia-agrodata/
 │
 ├── src/
-│   ├── main.py                # Menu principal e orquestração
-│   ├── coleta_dados.py        # Registro e validação de entradas
-│   ├── analise_dados.py       # Cálculos de perda e produtividade
-│   ├── graficos.py            # Geração de gráficos (PNG)
-│   ├── persistencia.py        # Manipulação JSON
-│   └── persistencia_oracle.py # Integração com Oracle
+│   ├── main.py
+│   ├── coleta_dados.py
+│   ├── analise_dados.py
+│   ├── graficos.py
+│   ├── persistencia.py
+│   └── persistencia_oracle.py
 │
 ├── data/
-│   └── colheita.json          # Base local
+│   └── colheita.json
 │
 ├── assets/
 │   └── img/
@@ -86,24 +100,24 @@ plantia-agrodata/
 
 ---
 
-## ▶️ **Como Executar o Sistema**
+## ▶️ Como Executar o Sistema <a id="execucao"></a>
 
-### 🔧 Pré-requisitos
-- Python 3.11+
-- Oracle Database (ou conta Oracle FIAP)
+### Pré-requisitos:
+- Python 3.11+  
+- Oracle Database (ou conta Oracle FIAP)  
 - Pacotes do `requirements.txt`
 
-### 💻 Instalação
+### Instalação:
 ```bash
 pip install -r requirements.txt
 ```
 
-### ▶️ Execução
+### Execução:
 ```bash
 python src/main.py
 ```
 
-📋 **Menu Principal:**
+**Menu Principal:**
 ```
 === PlantIA Agrodata — Gestão de Colheita (FIAP) ===
 1) Registrar colheita
@@ -117,38 +131,36 @@ python src/main.py
 
 ---
 
-## 🧠 **Integração com Banco de Dados Oracle (FIAP)**
+## 🧠 Integração com Banco de Dados Oracle (FIAP) <a id="oracle"></a>
+
 O PlantIA integra-se ao banco **Oracle Cloud (FIAP)** para armazenar registros de colheitas.
 
-### 🧩 Teste de Conexão
+### Teste de Conexão:
 ```bash
 python src/test_oracle.py
 ```
-✅ Retorno esperado:
+✅ Resultado esperado:
 ```
 ✅ Conexão bem-sucedida com o Oracle (FIAP)!
 🔹 Mensagem: PlantIA conectado à FIAP!
 🔒 Conexão encerrada.
 ```
 
-### 🗃️ Inserção de Dados via Menu
-Ao selecionar a opção **6 - Enviar JSON ao Oracle**, os registros são enviados automaticamente, utilizando **UPSERT** (sem duplicar dados).
-
 ---
 
-## 📊 **Geração de Gráficos**
+## 📊 Geração de Gráficos <a id="graficos"></a>
 
-### 📈 Média de perda por campo
+### Média de perda por campo:
 `assets/img/media_perda_por_campo.png`
 
-### 📉 Série temporal por campo (ex: field_id = 101)
+### Série temporal (exemplo: field_id = 101):
 `assets/img/serie_perda_field_101.png`
 
-💡 Gráficos são salvos automaticamente no diretório `assets/img/`.
+💡 Os gráficos são salvos automaticamente em `assets/img/`.
 
 ---
 
-## 🧩 **Demonstração do Menu Principal**
+## 🧩 Demonstração do Menu Principal <a id="menu"></a>
 ```
 === PlantIA Agrodata — Gestão de Colheita (FIAP) ===
 1) Registrar colheita
@@ -162,15 +174,19 @@ Ao selecionar a opção **6 - Enviar JSON ao Oracle**, os registros são enviado
 
 ---
 
-## 👨‍💻 **Autores e Créditos**
+## 👨‍💻 Autores e Créditos <a id="autores"></a>
 **Desenvolvido por:**  
-👤 **Leno Siqueira** — `lnosiqueira@gmail.com`
-
-**FIAP - Faculdade de Informática e Administração Paulista**  
-**Curso:** Inteligência Artificial — **Ano:** 2025
+👤 **Leno Siqueira** – `lnosiqueira@gmail.com`  
+📘 **FIAP — Faculdade de Informática e Administração Paulista**  
+📅 **Ano:** 2025  
+📚 **Curso:** Inteligência Artificial  
 
 ---
 
-## 📜 **Licença**
+## 📜 Licença <a id="licenca"></a>
 Este projeto está licenciado sob a **Licença MIT** — uso livre para fins acadêmicos e de aprendizado.  
-© 2025 - FIAP / PlantIA Agrodata
+© 2025 — FIAP / PlantIA Agrodata
+
+<p align="center">
+  <img src="https://www.fiap.com.br/wp-content/themes/fiap2016/images/logo-fiap.svg" width="180">
+</p>
