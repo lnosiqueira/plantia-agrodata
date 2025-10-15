@@ -43,10 +43,10 @@
 ## 🧑‍🏫 Professores:
 
 **Tutor(a)**  
-- [**Sabrina Otoni**](https://www.linkedin.com/in/exemplo)
+- [**Sabrina Otoni**](https://www.linkedin.com/in/sabrina-otoni-22525519b)
 
 **Coordenador(a)**  
-- [**André Godoi**](https://www.linkedin.com/in/exemplo)
+- [**André Godoi**](https://www.linkedin.com/company/inova-fusca)
 
 ---
 
