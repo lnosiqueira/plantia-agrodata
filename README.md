@@ -238,6 +238,7 @@ python src/test_oracle.py
 
 ---
 
-## 📜 Licença <a name="licenca"></a>
+<a name="licenca"></a>
+## 📜 Licença
 Este projeto está licenciado sob a **Licença MIT** — uso livre para fins acadêmicos e de aprendizado.  
 © 2025 — FIAP / PlantIA Agrodata
