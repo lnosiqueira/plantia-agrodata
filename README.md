@@ -13,20 +13,20 @@
 ---
 
 ## 🧭 Sumário
-- [👥 Integrantes do Grupo](#integrantes-do-grupo)
+- [👥 Integrantes do Grupo](#integrantes)
 - [🧑‍🏫 Professores](#professores)
 - [📘 Sobre o Projeto](#sobre-o-projeto)
 - [🎯 Objetivo](#objetivo)
 - [⚙️ Funcionalidades](#funcionalidades)
-- [🗂️ Estrutura do Projeto](#estrutura-do-projeto)
+- [🗂️ Estrutura do Projeto](#estrutura-projeto)
 - [📁 Estrutura de Pastas (FIAP)](#estrutura-de-pastas-fiap)
-- [▶️ Como Executar o Sistema](#como-executar-o-sistema)
+- [▶️ Como Executar o Sistema](#como-executar)
 - [🧠 Integração com Banco de Dados Oracle (FIAP)](#integração-com-banco-de-dados-oracle-fiap)
 - [📊 Geração de Gráficos](#geração-de-gráficos)
 - [🧩 Demonstração do Menu Principal](#demonstração-do-menu-principal)
 - [🗃 Histórico de Lançamentos](#histórico-de-lançamentos)
 - [👨‍💻 Autores e Créditos](#autores-e-créditos)
-- [📜 Licença](#licença)
+- [📜 Licença](#licenca)
 
 
 ---
