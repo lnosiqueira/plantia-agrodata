@@ -92,7 +92,7 @@ Criar uma ferramenta simples e didática para:
 
 ---
 
-## 🗂️ Estrutura do Projeto <a name="estrutura"></a>
+## 🗂️ Estrutura do Projeto <a name="estrutura-projeto"></a>
 ```
 plantia-agrodata/
 │
@@ -134,7 +134,7 @@ Dentre os arquivos e pastas presentes na raiz do projeto, definem-se:
 
 ---
 
-## ▶️ Como Executar o Sistema <a name="execucao"></a>
+## ▶️ Como Executar o Sistema <a name="como-executar"></a>
 
 ### Pré-requisitos:
 - Python 3.11+  
