@@ -29,7 +29,7 @@
 ---
 
 ## 👥 Integrantes do Grupo <a id="integrantes"></a>
-| Nome |
+| Nome | RM |
 |---
 | [**Leno Siqueira**](https://www.linkedin.com/in/leno-siqueira-36789544) | **RM567893** |
 | **Fred Vilagra** | **RM567187** | https://www.linkedin.com/in/federico-villagra-97378838a) |
