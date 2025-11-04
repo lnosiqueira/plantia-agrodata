@@ -1,0 +1,7 @@
+python-dotenv==1.0.1
+pandas==2.2.2
+plotly==5.23.0
+oracledb==2.1.1
+streamlit==1.38.0
+fastapi==0.115.0
+uvicorn==0.30.1
