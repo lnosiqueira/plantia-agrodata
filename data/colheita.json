@@ -25,5 +25,14 @@
     "tons_collected": 84.0,
     "loss_percentage": 4.55,
     "notes": ""
+  },
+  {
+    "field_id": 101,
+    "harvest_date": "15/10/2025",
+    "method": "mecanica",
+    "tons_expected": 12.5,
+    "tons_collected": 3.2,
+    "loss_percentage": 74.4,
+    "notes": "nenhuma"
   }
 ]

@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+.env.*
+.streamlit/
+.vscode/
+*.log
+data/*.csv
+!data/plantia_sensores_fase2_sample.csv
