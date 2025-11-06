@@ -21,7 +21,8 @@
 - [🗂️ Estrutura do Projeto](#estrutura-projeto)
 - [📁 Estrutura de Pastas (FIAP)](#estrutura-de-pastas-fiap)
 - [▶️ Como Executar o Sistema](#como-executar)
-- [🧠 Integração com Banco de Dados Oracle (FIAP)](#integração-com-banco-de-dados-oracle-fiap)
+- [🧠 Integração com Banco de Dados Oracle (FIAP)](#integracao-com-banco-de-dados-oracle-fiap)
+- [🌐 Diagnóstico Oracle e Streamlit (Fase 3)](#diagnostico-oracle-e-streamlit-fiap)
 - [📊 Geração de Gráficos](#geração-de-gráficos)
 - [🧩 Demonstração do Menu Principal](#demonstração-do-menu-principal)
 - [🗃 Histórico de Lançamentos](#histórico-de-lançamentos)
@@ -43,7 +44,7 @@
 
 ---
 
-## 🧑‍🏫 Professores: <a id="professores"></a>
+## 🧑‍🏫 Professores <a id="professores"></a>
 
 **Tutor(a)**  
 - [**Sabrina Otoni**](https://www.linkedin.com/in/sabrina-otoni-22525519b)
@@ -63,17 +64,19 @@ O sistema integra análise de dados, automação de processos e conexão real co
 - Inteligência Artificial aplicada ao Agronegócio  
 - Estruturas de Dados em Python  
 - Persistência com arquivos JSON e Oracle  
-- Visualização analítica com **Matplotlib**
+- Visualização analítica com **Matplotlib**  
+- Interface interativa com **FastAPI e Streamlit**
 
 ---
 
 ## 🎯 Objetivo <a id="objetivo"></a>
 
-Criar uma ferramenta simples e didática para:
+Criar uma ferramenta inteligente e didática para:
 - Monitorar colheitas de cana-de-açúcar  
 - Calcular perdas e produtividade automaticamente  
 - Armazenar dados em JSON e no Oracle Database  
 - Gerar gráficos analíticos para suporte à decisão  
+- Exibir diagnósticos de conectividade via API e interface Streamlit  
 
 ---
 
@@ -86,13 +89,15 @@ Criar uma ferramenta simples e didática para:
 | 3️⃣ | **Resumo Analítico** | Exibe médias e totais de produtividade |
 | 4️⃣ | **Persistência JSON** | Salva e lê dados localmente |
 | 5️⃣ | **Conexão Oracle FIAP** | Envia dados do JSON para o banco Oracle |
-| 6️⃣ | **Geração de Gráficos** | Gera e exporta gráficos em PNG |
-| 7️⃣ | **Interface CLI** | Menu intuitivo via terminal |
+| 6️⃣ | **Diagnóstico Oracle via Streamlit** | Verifica a conectividade com o Oracle e exibe logs em tempo real |
+| 7️⃣ | **Interface CLI e Web** | Menu interativo via terminal e dashboard via navegador |
+| 8️⃣ | **Geração de Gráficos** | Exibe e exporta gráficos analíticos em PNG |
 
 ---
 
 ## 🗂️ Estrutura do Projeto <a name="estrutura-projeto"></a>
-```
+
+```text
 plantia-agrodata/
 │
 ├── src/
@@ -103,6 +108,15 @@ plantia-agrodata/
 │   ├── persistencia.py
 │   └── persistencia_oracle.py
 │
+├── app/
+│   ├── deps/
+│   │   └── db.py
+│   ├── main.py
+│   └── __init__.py
+│
+├── pages/
+│   └── 1_Diagnostico_DB.py
+│
 ├── data/
 │   └── colheita.json
 │
@@ -112,6 +126,12 @@ plantia-agrodata/
 │       ├── media_perda_por_campo.png
 │       └── serie_perda_field_101.png
 │
+├── evidencias/
+│   └── 03-diagnostico/
+│       ├── img/
+│       │   └── streamlit_conexao_oracle.png
+│       └── README_EVIDENCIAS.md
+│
 └── README.md
 ```
 
@@ -119,82 +139,90 @@ plantia-agrodata/
 
 ## 📁 Estrutura de Pastas <a id="estrutura-de-pastas-fiap"></a>
 
-Dentre os arquivos e pastas presentes na raiz do projeto, definem-se:
-
 | Pasta / Arquivo | Descrição |
 |------------------|-----------|
-| **.github/** | Arquivos de configuração do GitHub para automação e integração contínua. |
-| **assets/** | Contém imagens, banners e outros elementos visuais. |
-| **config/** | Arquivos de configuração usados para definir parâmetros e ajustes do projeto. |
-| **document/** | Documentos gerais do projeto e relatórios. Subpasta `other/` para anexos complementares. |
-| **scripts/** | Scripts auxiliares (ex: backup, deploy, migração de banco). |
-| **src/** | Código-fonte principal do sistema desenvolvido nas fases do projeto. |
-| **README.md** | Guia e explicação geral sobre o projeto. |
+| **src/** | Código-fonte base do sistema CLI |
+| **app/** | Estrutura FastAPI e dependências |
+| **pages/** | Dashboards Streamlit |
+| **assets/** | Imagens e gráficos gerados |
+| **data/** | Arquivos de dados (JSON) |
+| **evidencias/** | Prints e relatórios da execução real |
+| **requirements.txt** | Pacotes necessários para execução |
+| **README.md** | Guia completo do projeto |
 
 ---
 
-## ▶️ Como Executar o Sistema <a name="como-executar"></a>
+## ▶️ Como Executar o Sistema <a id="como-executar"></a>
 
-### Pré-requisitos:
-- Python 3.11+  
-- Oracle Database (ou conta Oracle FIAP)  
-- Pacotes do `requirements.txt`
-
-### Instalação:
+### Instalação de dependências
 ```bash
 pip install -r requirements.txt
 ```
 
-### Execução:
+### Execução da aplicação CLI
 ```bash
 python src/main.py
 ```
 
-**Menu Principal:**
+### Execução da API FastAPI
+```bash
+set ORACLE_USER=rm567893
+set ORACLE_PWD=Fiap#2025
+python -m uvicorn app.main:app --reload
 ```
-=== PlantIA Agrodata — Gestão de Colheita (FIAP) ===
-1) Registrar colheita
-2) Resumo por campo (field_id)
-3) Resumo geral
-4) Salvar dados em JSON
-5) Gráficos (mostrar/salvar PNG)
-6) Enviar JSON ao Oracle
-0) Sair
+
+### Execução da interface Streamlit
+```bash
+set ORACLE_USER=rm567893
+set ORACLE_PWD=Fiap#2025
+python -m streamlit run pages/1_Diagnostico_DB.py
+```
+
+Acesse: **http://localhost:8501**
+
+---
+
+## 🧠 Integração com Banco de Dados Oracle (FIAP) <a id="integracao-com-banco-de-dados-oracle-fiap"></a>
+
+Teste rápido via script:
+```bash
+python test_oracle_conn.py
 ```
 
 ---
 
-## 🧠 Integração com Banco de Dados Oracle (FIAP) <a id="integração-com-banco-de-dados-oracle-fiap"></a>
+## 🌐 Diagnóstico Oracle e Streamlit (Fase 3) <a id="diagnostico-oracle-e-streamlit-fiap"></a>
 
-O PlantIA integra-se ao banco **Oracle Cloud (FIAP)** para armazenar registros de colheitas.
+O módulo de diagnóstico monitora em tempo real a conexão com o Oracle Cloud FIAP usando **FastAPI + Streamlit + oracledb**, exibindo logs diretamente da tabela **PLANTIA_AGRO_LOG**.
 
-### Teste de Conexão:
-```bash
-python src/test_oracle.py
-```
-✅ Resultado esperado:
-```
-✅ Conexão bem-sucedida com o Oracle (FIAP)!
-🔹 Mensagem: PlantIA conectado à FIAP!
-🔒 Conexão encerrada.
-```
+**Estrutura técnica**
+- `app/deps/db.py` → verificação do Oracle  
+- `app/main.py` (FastAPI) → endpoint `/health/db`  
+- `pages/1_Diagnostico_DB.py` (Streamlit) → interface visual  
+
+**Tela de diagnóstico**  
+Imagem em: `evidencias/03-diagnostico/img/streamlit_conexao_oracle.png`
+
+**Resultado**
+- Conectado ao Oracle com sucesso  
+- Hora do servidor Oracle exibida  
+- Logs de acesso registrados no banco  
+- Dashboard em `http://localhost:8501`
 
 ---
 
 ## 📊 Geração de Gráficos <a id="geração-de-gráficos"></a>
 
-### Média de perda por campo:
-`assets/img/media_perda_por_campo.png`
-
-### Série temporal (exemplo: field_id = 101):
-`assets/img/serie_perda_field_101.png`
+- Média de perda por campo: `assets/img/media_perda_por_campo.png`  
+- Série temporal (ex.: `field_id = 101`): `assets/img/serie_perda_field_101.png`  
 
 💡 Os gráficos são salvos automaticamente em `assets/img/`.
 
 ---
 
 ## 🧩 Demonstração do Menu Principal <a id="demonstração-do-menu-principal"></a>
-```
+
+```text
 === PlantIA Agrodata — Gestão de Colheita (FIAP) ===
 1) Registrar colheita
 2) Resumo por campo (field_id)
@@ -204,52 +232,51 @@ python src/test_oracle.py
 6) Enviar JSON ao Oracle
 0) Sair
 ```
+
 ---
 
 ## 🗃 Histórico de Lançamentos <a id="histórico-de-lançamentos"></a>
 
-| Versão    | Data       | Descrição                                             |
-| --------- | ---------- | ----------------------------------------------------- |
+| Versão | Data | Descrição |
+|-------:|:----:|-----------|
+| **1.1.0** | 06/11/2025 | Integração com Oracle via FastAPI e Streamlit |
 | **1.0.0** | 14/10/2025 | Entrega final FIAP: JSON + Gráficos + Oracle (UPSERT) |
-| **0.4.0** | 12/10/2025 | Persistência Oracle/JSON e testes                     |
-| **0.3.0** | 10/10/2025 | Menu principal e cálculo de perdas                    |
-| **0.2.0** | 08/10/2025 | Estrutura de pastas, coleta e validações              |
-| **0.1.0** | 06/10/2025 | Kickoff do projeto e setup inicial                    |
+| **0.4.0** | 12/10/2025 | Persistência Oracle/JSON e testes |
+| **0.3.0** | 10/10/2025 | Menu principal e cálculo de perdas |
+| **0.2.0** | 08/10/2025 | Estrutura de pastas, coleta e validações |
+| **0.1.0** | 06/10/2025 | Kickoff do projeto e setup inicial |
 
 ---
 
 ## 👨‍💻 Autores e Créditos <a id="autores-e-créditos"></a>
+
 **Desenvolvido por:**
-  
-👤 **Leno Siqueira** – `lnosiqueira@gmail.com`
 
-👤 **Fred Villagra** – `federicoenriquevillagra@gmail.com`
+- **Leno Siqueira** – lnosiqueira@gmail.com  
+- **Fred Villagra** – federicoenriquevillagra@gmail.com  
+- **Paulo Benfica** – paulo.benfica@outlook.com  
+- **Maria Mendes** – mdea.mendes@gmail.com  
+- **Mateus Lima** – mateusstockcar@gmail.com
 
-👤 **Paulo Benfica** – `paulo.benfica@outlook.com`
-
-👤 **Maria Mendes** – `mdea.mendes@gmail.com`
-
-👤 **Mateus Lima** – `mateusstockcar@gmail.com`
-  
 📘 **FIAP — Faculdade de Informática e Administração Paulista**  
 📅 **Ano:** 2025  
-📚 **Curso:** Inteligência Artificial  
+📚 **Curso:** Inteligência Artificial
 
 ---
 
 ## 🔗 Repositório e Evidência de Versionamento <a id="repositorio-e-evidencia-de-versionamento"></a>
 
-
-**GitHub:** [https://github.com/lnosiqueira/plantia-agrodata](https://github.com/lnosiqueira/plantia-agrodata)
+**GitHub:** https://github.com/lnosiqueira/plantia-agrodata
 
 O repositório contém:
-- Histórico completo de commits e versões (controle de versionamento Git);
-- Estrutura modular (src, assets, document, data);
-- Arquivos de documentação FIAP (README, Guia Prático, Roteiro de Defesa);
-- Códigos-fonte e scripts originais do PlantIA Agrodata (Grupo S).
+- Histórico completo de commits e versões;  
+- Estrutura modular (src, app, assets, pages, evidencias);  
+- Documentos FIAP (README, guias e prints técnicos);  
+- Scripts originais do PlantIA Agrodata (Grupo S).
 
 ---
 
-## 📜 Licença <a name="licenca"></a>
+## 📜 Licença <a id="licenca"></a>
+
 Este projeto está licenciado sob a **Licença MIT** — uso livre para fins acadêmicos e de aprendizado.  
 © 2025 — FIAP / PlantIA Agrodata
