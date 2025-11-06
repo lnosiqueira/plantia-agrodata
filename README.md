@@ -166,15 +166,15 @@ python src/main.py
 
 ### Execução da API FastAPI
 ```bash
-set ORACLE_USER=rm567893
-set ORACLE_PWD=Fiap#2025
+set ORACLE_USER=<seu_usuario_FIAP>
+set ORACLE_PWD=<sua_senha_FIAP>
 python -m uvicorn app.main:app --reload
 ```
 
 ### Execução da interface Streamlit
 ```bash
-set ORACLE_USER=rm567893
-set ORACLE_PWD=Fiap#2025
+set ORACLE_USER=<seu_usuario_FIAP>
+set ORACLE_PWD=<sua_senha_FIAP>
 python -m streamlit run pages/1_Diagnostico_DB.py
 ```
 
