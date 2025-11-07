@@ -6,7 +6,9 @@ st.title("Diagnóstico Oracle – PlantIA Agrodata")
 
 dsn = oracledb.makedsn("oracle.fiap.com.br", 1521, sid="ORCL")
 user = os.getenv("ORACLE_USER", "rm567893")
-pwd  = os.getenv("ORACLE_PWD",  "Fiap#2025")
+pwd = os.getenv("ORACLE_PWD")
+if not pwd:
+    raise RuntimeError("ORACLE_PWD não definida. Configure via .env/variável de ambiente.")
 
 try:
     with oracledb.connect(user=user, password=pwd, dsn=dsn) as conn:
