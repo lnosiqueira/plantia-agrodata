@@ -1,18 +1,16 @@
-import os
+# app/deps/db.py
 import oracledb
-from fastapi import HTTPException
+from src.config import get_oracle_cfg
 
-def check_db():
-    dsn = oracledb.makedsn("oracle.fiap.com.br", 1521, sid="ORCL")
-    user = os.getenv("ORACLE_USER", "rm567893")
-    pwd = os.getenv("ORACLE_PWD")
-if not pwd:
-    raise RuntimeError("ORACLE_PWD não definida. Configure via .env/variável de ambiente.")
+def connect():
+    cfg = get_oracle_cfg()
+    dsn = oracledb.makedsn(cfg["host"], cfg["port"], sid=cfg["sid"])
+    return oracledb.connect(user=cfg["user"], password=cfg["pwd"], dsn=dsn)
 
-    try:
-        with oracledb.connect(user=user, password=pwd, dsn=dsn) as conn:
-            with conn.cursor() as cur:
-                cur.execute("SELECT 1 FROM dual")
-                return True
-    except Exception as e:
-        raise HTTPException(status_code=503, detail=f"DB down: {e}")
+def ping() -> dict:
+    with connect() as conn:
+        with conn.cursor() as cur:
+            cur.execute("SELECT CURRENT_TIMESTAMP FROM dual")
+            ts = cur.fetchone()[0]
+    return {"ok": True, "db_time": str(ts)}
+

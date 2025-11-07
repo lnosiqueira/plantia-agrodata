@@ -1,12 +1,11 @@
 import streamlit as st
-import os, oracledb
-from datetime import datetime
+import oracledb
+from src.config import get_oracle_cfg
 
-st.title("Diagnóstico Oracle – PlantIA Agrodata")
+st.set_page_config(page_title="Diagnóstico Oracle – PlantIA", page_icon="🌾", layout="wide")
 
-dsn = oracledb.makedsn("oracle.fiap.com.br", 1521, sid="ORCL")
-user = os.getenv("ORACLE_USER", "rm567893")
-pwd = os.getenv("ORACLE_PWD")
+cfg = get_oracle_cfg()
+dsn = oracledb.makedsn(cfg["host"], cfg["port"], sid=cfg["sid"])
 if not pwd:
     raise RuntimeError("ORACLE_PWD não definida. Configure via .env/variável de ambiente.")
 

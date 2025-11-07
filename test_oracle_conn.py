@@ -1,33 +1,15 @@
-import os
+# test_oracle_conn.py
 import oracledb
+from src.config import get_oracle_cfg
 
-# DSN com SID (igual ao SQL Developer)
-dsn = oracledb.makedsn("oracle.fiap.com.br", 1521, sid="ORCL")
-
-# Use o mesmo usuário/senha do SQL Developer
-user = os.getenv("ORACLE_USER", "rm567893")
-pwd = os.getenv("ORACLE_PWD")
-if not pwd:
-    raise RuntimeError("ORACLE_PWD não definida. Configure via .env/variável de ambiente.")
-
-try:
-    with oracledb.connect(user=user, password=pwd, dsn=dsn) as conn:
+def main():
+    cfg = get_oracle_cfg()
+    dsn = oracledb.makedsn(cfg["host"], cfg["port"], sid=cfg["sid"])
+    with oracledb.connect(user=cfg["user"], password=cfg["pwd"], dsn=dsn) as conn:
         with conn.cursor() as cur:
-            cur.execute("SELECT CURRENT_TIMESTAMP FROM dual")
-            print("✅ Conectado! Hora do servidor:", cur.fetchone()[0])
+            cur.execute("SELECT 'OK' AS STATUS FROM dual")
+            print("✅ Conexão bem-sucedida com o Oracle (FIAP)! ->", cur.fetchone()[0])
 
-            cur.execute("""
-                INSERT INTO PLANTIA_AGRO_LOG (source, message)
-                VALUES (:1, :2)
-            """, ["python_test", "Log inserido via script Python"])
-            conn.commit()
+if __name__ == "__main__":
+    main()
 
-            cur.execute("""
-                SELECT id, created_at, source, message
-                FROM PLANTIA_AGRO_LOG
-                ORDER BY id DESC FETCH FIRST 2 ROWS ONLY
-            """)
-            for row in cur:
-                print(row)
-except Exception as e:
-    print("❌ Falha na conexão:", e)
