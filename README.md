@@ -1,219 +1,175 @@
 <p align="center">
-  <img src="assets/img/banner_plantia.png" width="100%" alt="PlantIA Agrodata - FIAP">
+  <img src="assets/img/banner_plantia.png" width="100%" alt="PlantIA Agrodata - Banner">
 </p>
 
 ---
 
-# 🌱 PlantIA Agrodata — Sistema Inteligente de Plantio e Monitoramento Agrícola
-**Fase 3 – Etapas de uma Máquina Agrícola (FIAP / FarmTech Solutions)**
+# 🌱 PlantIA Agrodata – Sistema Inteligente de Plantio Sustentável com IoT e Oracle Cloud
 
-> **Visão:** Plataforma de IA e sensoriamento que **monitora, prevê e recomenda ações agronômicas** para a etapa de **plantio** — do dado ao campo, com inteligência.
-
-📘 Projeto acadêmico desenvolvido na disciplina de **Python (Capítulos 3 a 6)**  
-📍 Curso de **Inteligência Artificial – FIAP 2025**
-
----
+Projeto FIAP – **Fase 3 (Etapas de uma Máquina Agrícola)**. Este repositório consolida **integração IoT (ESP32/Wokwi)**, **persistência Oracle**, **API FastAPI** e **evidências** para avaliação.
 
 ## 📑 Sumário
-- [Descrição Geral](#-descrição-geral)
-- [🧭 Manifesto – PlantIA Agrodata](#-manifesto--plantia-agrodata)
-- [🎯 Objetivo da Fase 3](#-objetivo-da-fase-3)
-- [🏗 Arquitetura Técnica (Visão Geral)](#-arquitetura-técnica-visão-geral)
-- [🗄️ Banco Oracle – Passo a Passo e Evidências](#️-banco-oracle--passo-a-passo-e-evidências)
-- [🛰️ Integração IoT – ESP32/Wokwi → Oracle](#️-integração-iot--esp32wokwi--oracle)
-- [📊 Programa “Ir Além” (Dashboard & ML)](#-programa-ir-além-dashboard--ml)
-- [📂 Estrutura de Pastas](#-estrutura-de-pastas)
-- [▶️ Como Executar (CLI/API)](#️-como-executar-cliapi)
-- [✅ Conclusão](#-conclusão)
-- [👨‍💻 Integrantes do Grupo S](#-integrantes-do-grupo-s)
-- [👩‍🏫 Professores](#-professores)
-- [🪪 Autores e Créditos](#-autores-e-créditos)
-- [🗃 Histórico de Lançamentos](#-histórico-de-lançamentos)
+- [Descrição Geral](#descrição-geral)
+- [Arquitetura Técnica](#arquitetura-técnica)
+- [Banco Oracle — Passo a Passo e Evidências](#banco-oracle--passo-a-passo-e-evidências)
+- [Integração IoT — ESP32/Wokwi → Oracle](#integração-iot--esp32wokwi--oracle)
+- [Como Executar (CLI / API / Dashboard)](#como-executar-cli--api--dashboard)
+- [Estrutura de Pastas](#estrutura-de-pastas)
+- [Integrantes do Grupo S](#integrantes-do-grupo-s)
+- [Professores](#professores)
+- [Histórico de Lançamentos](#histórico-de-lançamentos)
+- [Créditos e Licença](#créditos-e-licença)
 
 ---
 
-## 🧠 Descrição Geral
-O **PlantIA Agrodata** evoluiu para um **sistema inteligente de plantio e monitoramento agrícola**, integrando **sensores IoT (ESP32/Wokwi)**, **Oracle Database (FIAP)**, **dashboards** e **modelos preditivos** para otimizar **preparo, irrigação e cultivo** de forma sustentável e automatizada.
+## Descrição Geral
+O **PlantIA Agrodata** é um **sistema inteligente de plantio e monitoramento**. Ele captura leituras **(umidade do solo, temperatura, pH)** via **ESP32 (Wokwi)**, envia para uma **API Python** e persiste no **Oracle** para análises e dashboards.
 
 ---
 
-## 🧭 Manifesto – PlantIA Agrodata
-**Propósito:** Transformar dados agrícolas em decisões inteligentes e sustentáveis.  
-**Missão:** Unir sensores, dados e IA para monitorar, prever e otimizar o **plantio**.  
-**Visão:** Ser referência nacional em IA agronômica, conectando o campo físico ao digital.  
-**Diferenciais:** Multicultivo • IoT + IA + Oracle • Escalável em Cloud • Autoria real • Evolução contínua.
-
----
-
-## 🎯 Objetivo da Fase 3
-- Importar dados de sensores (Fase 2) para o **Oracle Database**;  
-- Executar **consultas SQL** e gerar **evidências (prints)**;  
-- Organizar o repositório (`document/docs/oracle_evidences.pdf`);  
-- Preparar base para **Streamlit (Dashboard)** e **Scikit-learn (ML)**.
-
----
-
-## 🏗 Arquitetura Técnica (Visão Geral)
+## Arquitetura Técnica
 ```
-Sensores/Simulação (ESP32 / Wokwi / CSV Fase 2)
+ESP32 (Wokwi) ── Leituras (Temp/Umidade/pH)
         │
         ▼
-Ingestão / API (Python + FastAPI/Requests)
+API Python (FastAPI) ── Validação/Transformação
         │
         ▼
-Banco Relacional (Oracle FIAP)
+Banco de Dados (Oracle) ── Consultas/Estatísticas
         │
         ▼
-Dashboard (Streamlit / AgroView)
-        │
-        ▼
-Machine Learning (AgroPredict – Scikit-learn)```
+Dashboard (Streamlit) ── KPIs e Visualizações
+```
 
 ---
 
-## 🗄️ Banco Oracle – Passo a Passo e Evidências
+## Banco Oracle — Passo a Passo e Evidências
 
-**Conexão FIAP**
-| Parâmetro | Valor |
-|---|---|
-| Host | `oracle.fiap.com.br` |
-| Porta | `1521` |
-| SID | `ORCL` |
-| Usuário | `RMxxxxx` |
-| Senha | `DDMMYY` |
+### 1) Conexão ao Banco
+![Conexão Oracle](assets/img/conexao_oracle.png)
 
-**Consultas utilizadas como evidência:**
+### 2) Tabelas do Schema
+![Tabelas Oracle](assets/img/tabelas_oracle.png)
 
+### 3) Listagem de Tabelas (USER_TABLES)
 ```sql
--- Amostra
-SELECT * FROM SENSORS_DATA_V2 FETCH FIRST 10 ROWS ONLY;
+SELECT TABLE_NAME
+FROM USER_TABLES;
+```
+![Listagem Tabelas](assets/img/listagem_tabelas.png)
 
--- Contagem
-SELECT COUNT(*) AS TOTAL_REGISTROS FROM SENSORS_DATA_V2;
+### 4) Estrutura da Tabela Principal
+![Estrutura Tabela](assets/img/estrutura_oracle.png)
 
--- Médias consolidadas
+### 5) Amostra de Registros
+![Select Sample](assets/img/select_sample.png)
+
+### 6) Consultas Estatísticas
+![Médias Consolidadas](assets/img/medias_consolidadas.png)
+![Contagem Total](assets/img/count_total.png)
+
+> Evidências em PDF: [`document/docs/oracle_evidences.pdf`](document/docs/oracle_evidences.pdf).
+
+---
+
+## Integração IoT — ESP32/Wokwi → Oracle
+![Protótipo Wokwi](assets/img/wokwi_prototipo.png)
+
+Fluxo resumido:
+```
+ESP32 (Wokwi) → JSON → FastAPI → cx_Oracle → SENSORS_DATA_V2
+```
+
+**Exemplo de consulta de médias (robusta a maiúsc./espaços):**
+```sql
 SELECT
-  ROUND(AVG(CASE WHEN UPPER(TRIM(TIPO_SENSOR))='UMIDADE SOLO' THEN LEITURA_VALOR END),2) AS UMIDADE_MEDIA,
+  ROUND(AVG(CASE WHEN UPPER(TRIM(TIPO_SENSOR))='UMIDADE SOLO'     THEN LEITURA_VALOR END),2) AS UMIDADE_MEDIA,
   ROUND(AVG(CASE WHEN UPPER(TRIM(TIPO_SENSOR))='TEMPERATURA SOLO' THEN LEITURA_VALOR END),2) AS TEMPERATURA_MEDIA,
-  ROUND(AVG(CASE WHEN UPPER(TRIM(TIPO_SENSOR))='PH SOLO' THEN LEITURA_VALOR END),2) AS PH_MEDIO
+  ROUND(AVG(CASE WHEN UPPER(TRIM(TIPO_SENSOR))='PH SOLO'          THEN LEITURA_VALOR END),2) AS PH_MEDIO
 FROM SENSORS_DATA_V2;
 ```
----
-
-📎 As capturas de tela das consultas e estrutura estão em document/docs/oracle_evidences.pdf.
 
 ---
 
-## 🛰️ Integração IoT – ESP32/Wokwi → Oracle
+## Como Executar (CLI / API / Dashboard)
 
-**Protótipo Wokwi:**  
-https://wokwi.com/projects/447381740224169985
+### 1) Preparar ambiente
+```bash
+# criar venv (Windows)
+python -m venv .venv
+.venv\Scripts\activate
 
-**Fluxo de dados**
-```
-ESP32 (Wokwi) → Leituras (Temp/Umidade/Umidade Solo)
-          │
-          ▼
-Script Python (requests + cx_Oracle)
-          │
-          ▼
-Tabela Oracle: SENSORS_DATA_V2
+# dependências
+pip install -r requirements.txt
+
+# (opcional) variáveis de ambiente (.env)
+# ORACLE_USER=RMxxxxx
+# ORACLE_PASS=DDMMYY
+# ORACLE_DSN=oracle.fiap.com.br:1521/orcl
 ```
 
-**Exemplo de integração (pseudo):**
-
-```python
-import cx_Oracle, requests, time, json
-dsn = cx_Oracle.makedsn("oracle.fiap.com.br", 1521, service_name="orcl")
-conn = cx_Oracle.connect(user="RMxxxxx", password="DDMMYY", dsn=dsn)
-cur = conn.cursor()
-
-def inserir(row):
-    cur.execute(
-      '''INSERT INTO SENSORS_DATA_V2 (CAMPO_ID, TIPO_SENSOR, LEITURA_VALOR, UNIDADE, DATA_LEITURA)
-         VALUES (:1,:2,:3,:4,SYSDATE)''',
-      (row["id"], row["tipo"], row["valor"], row["unidade"])
-    )
-    conn.commit()
-```
----
-
-## 📊 Programa “Ir Além” (Dashboard & ML)
-
-Dashboard (Streamlit): KPIs de Umidade | pH | Temperatura + filtros por período.
-
-ML (Scikit-learn): preparação de modelos de recomendação de irrigação/plantio.
-
----
-
-## 📂 Estrutura de Pastas
-
-| Pasta / Arquivo | Descrição |
-
-|---|---|
-| **assets/** | Banners/prints (inclui Wokwi e Oracle) |
-| **document/** | Relatórios e anexos (ex.: `docs/oracle_evidences.pdf`) |
-| **src/** | Código-fonte (CLI/API, integração Oracle) |
-| **scripts/** | Utilitários (backup, migração) |
-| **config/** | Parâmetros e credenciais locais |
-| **README.md** | Este arquivo |
-
----
-## ▶️ Como Executar (CLI/API)
-
-CLI
+### 2) Executar CLI
+```bash
 python src/main.py
+```
 
-API (FastAPI)
+### 3) Executar API (FastAPI)
+```bash
 uvicorn src.api:app --reload
-# depois abra: http://127.0.0.1:8000/docs
+```
+- Abra o **Swagger** em: **http://127.0.0.1:8000/docs**
+- Endpoint típico: `POST /oracle/sync`, `GET /sensores/media?tipo=UMIDADE SOLO`
 
-Menu (atualizado para Plantio/Monitoramento):
+### 4) Abrir o Dashboard (se disponível)
+```bash
+streamlit run dashboard/app.py
+```
+- Acesse: **http://localhost:8501**
 
-=== PlantIA Agrodata — Sistema Inteligente de Plantio (FIAP) ===
-1) Registrar leitura de sensores
-2) Resumo por campo (plantio)
-3) Monitorar condições ambientais
-4) Exportar dados em JSON
-5) Enviar dados ao Oracle
-0) Sair
-
----
-
-## ✅ Conclusão
-
-A Fase 3 consolidou a camada de dados (Oracle) e evidenciou a análise de sensores.
-Com a integração IoT (ESP32/Wokwi) e a base pronta para Dashboard/ML, o PlantIA Agrodata avança de um protótipo de colheita para um sistema inteligente de plantio e monitoramento, demonstrando evolução técnica e escalabilidade.
+> **Dica:** Se estiver usando **PowerShell**, execute `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned` se houver bloqueio ao ativar a venv.
 
 ---
 
-## 👨‍💻 Integrantes do Grupo S
-
-Nome	RM
-Leno Siqueira	RM567893
-Fred Villagra	RM567187
-Paulo Benfica	RM567648
-Maria Mendes	RM568563
-Mateus Lima	    RM568518
-
----
-
-## 🧑‍🏫 Professores
-
-Tutor(a): Sabrina Otoni
-Coordenador(a): André Godoi
+## Estrutura de Pastas
+```
+plantia-agrodata/
+├─ assets/
+│  └─ img/                 # prints e banner
+├─ document/
+│  └─ docs/                # evidências (PDF)
+├─ src/                    # código-fonte (CLI/API)
+├─ scripts/                # utilitários
+├─ requirements.txt
+└─ README.md
+```
 
 ---
 
-## 🪪 Autores e Créditos
-
-INTEGRANTES DO GRUPO S - FIAP • 2025 • Curso de Inteligência Artificial
-Repositório: https://github.com/lnosiqueira/plantia-agrodata
+## Integrantes do Grupo S
+| Nome | RM |
+|------|----|
+| Leno Siqueira | RM567893 |
+| Fred Villagra | RM567187 |
+| Paulo Benfica | RM567648 |
+| Maria Mendes | RM568563 |
+| Mateus Lima | RM568518 |
 
 ---
 
-## 🗃 Histórico de Lançamentos
+## Professores
+- **Tutor(a):** Sabrina Otoni  
+- **Coordenador(a):** André Godoi
+
+---
+
+## Histórico de Lançamentos
 | Versão | Data | Descrição |
 |---|---|---|
-| **2.0.0** | 12/11/2025 | Evolução para **Sistema Inteligente de Plantio** (ESP32/Wokwi + Oracle + evidências) |
-| **1.0.0** | 14/10/2025 | Entrega FIAP: JSON + Gráficos + Oracle (UPSERT) |
+| 2.0.0 | 12/11/2025 | Evolução para **Sistema Inteligente de Plantio** (ESP32/Wokwi + Oracle + evidências) |
+| 1.0.0 | 14/10/2025 | Entrega FIAP: JSON + Gráficos + Oracle (UPSERT) |
+
+---
+
+## Créditos e Licença
+© 2025 — FIAP / PlantIA Agrodata  
+Licença **MIT** — uso livre para fins acadêmicos e de aprendizado.
