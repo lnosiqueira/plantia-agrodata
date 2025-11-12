@@ -1,5 +1,5 @@
-pandas==2.1.0
-matplotlib==3.10.6
-numpy==1.25.2
-oracledb==2.4.1
-
+dash
+plotly
+requests
+pandas
+sqlite3

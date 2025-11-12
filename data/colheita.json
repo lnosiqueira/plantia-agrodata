@@ -1,38 +1,20 @@
 [
   {
-    "field_id": 101,
-    "harvest_date": "2025-09-20",
-    "method": "mecanica",
-    "tons_expected": 100.0,
-    "tons_collected": 85.0,
-    "loss_percentage": 15.0,
-    "notes": "Umidade alta"
+    "Data": "2025-11-01",
+    "Umidade": 60,
+    "pH": 6.5,
+    "Nitrogênio": 20,
+    "Fósforo": 15,
+    "Potássio": 30,
+    "Temperatura": 25
   },
   {
-    "field_id": 101,
-    "harvest_date": "2025-09-28",
-    "method": "mecanica",
-    "tons_expected": 95.0,
-    "tons_collected": 83.0,
-    "loss_percentage": 12.63,
-    "notes": "Operação noturna"
-  },
-  {
-    "field_id": 102,
-    "harvest_date": "2025-09-22",
-    "method": "manual",
-    "tons_expected": 88.0,
-    "tons_collected": 84.0,
-    "loss_percentage": 4.55,
-    "notes": ""
-  },
-  {
-    "field_id": 101,
-    "harvest_date": "15/10/2025",
-    "method": "mecanica",
-    "tons_expected": 12.5,
-    "tons_collected": 3.2,
-    "loss_percentage": 74.4,
-    "notes": "nenhuma"
+    "Data": "2025-11-02",
+    "Umidade": 62,
+    "pH": 6.4,
+    "Nitrogênio": 22,
+    "Fósforo": 14,
+    "Potássio": 32,
+    "Temperatura": 26
   }
 ]
