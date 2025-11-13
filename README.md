@@ -173,3 +173,5 @@ plantia-agrodata/
 ## Créditos e Licença
 © 2025 — FIAP / PlantIA Agrodata  
 Licença **MIT** — uso livre para fins acadêmicos e de aprendizado.
+https://github.com/lnosiqueira/plantia-agrodata
+https://youtu.be/9Y8mk1WcBII
